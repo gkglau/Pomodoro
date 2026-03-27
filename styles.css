@@ -40,6 +40,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Unbounded', cursive;
 }
+i{
+  margin: 1rem;
+}
 
 .app__logo-figure {
     display: flex;

@@ -4,6 +4,7 @@ const focusBtn = document.querySelector('.app__card-button--foco');
 const shortBtn = document.querySelector('.app__card-button--curto');
 const longBtn = document.querySelector('.app__card-button--longo');
 const buttons = document.querySelectorAll('.app__card-button');
+const startBtn= document.querySelector('#start-pause span')
 
 // sounds
 const playMusic = document.querySelector('#alternar-musica');
@@ -14,10 +15,12 @@ const playSound = new Audio('/sounds/play.wav');
 const pauseSound = new Audio('/sounds/pause.mp3');
 const endSound = new Audio('/sounds/beep.mp3');
 
+// countdown
 let timePassedSeconds = 5
-const startPauseBt = document.querySelector('#start-pause')
+const startPauseBtn = document.querySelector('#start-pause')
 let intervalId = null
 
+// plau music
 playMusic.addEventListener('change', ()=> {
   if (music.paused) {
     music.play()
@@ -52,16 +55,16 @@ function changeContext(context) {
 // countdown
 const countdown = () => {
   if(timePassedSeconds <= 0){
-    reset()
     endSound.play()
     alert("Time's up.")
+    reset()
     return
   }
     timePassedSeconds -= 1
-    console.log('Temporizador: ' + timePassedSeconds)
+    console.log('Time: ' + timePassedSeconds)
 }
 
-startPauseBt.addEventListener('click', startCount)
+startPauseBtn.addEventListener('click', startCount)
 
 function startCount() {
   if(intervalId){
@@ -71,9 +74,12 @@ function startCount() {
   }
   playSound.play()
     intervalId = setInterval(countdown, 1000)
+     startBtn.innerHTML = `<span><i class="fa-solid fa-pause"></i>Pause</span>`
+
 }
 
 function reset() {
     clearInterval(intervalId)
+    startBtn.innerHTML = `<span><i class="fa-solid fa-play"></i>Play</span>`
     intervalId = null
 }

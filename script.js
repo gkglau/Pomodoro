@@ -16,9 +16,12 @@ const pauseSound = new Audio('/sounds/pause.mp3');
 const endSound = new Audio('/sounds/beep.mp3');
 
 // countdown
-let timePassedSeconds = 5
+let timePassedSeconds = 1500
 const startPauseBtn = document.querySelector('#start-pause')
 let intervalId = null
+
+//timescreen
+const timeScreen = document.getElementById('timer')
 
 // plau music
 playMusic.addEventListener('change', ()=> {
@@ -31,21 +34,25 @@ playMusic.addEventListener('change', ()=> {
 
 // change theme
 focusBtn.addEventListener('click', () => {
+  timePassedSeconds = 1500
   changeContext('foco')
   focusBtn.classList.add('active')
 })
 
 shortBtn.addEventListener('click', () => {
+  timePassedSeconds = 300
   changeContext('descanso-curto')
   shortBtn.classList.add('active')
 })
 
 longBtn.addEventListener('click', () => {
+  timePassedSeconds = 900
   changeContext('descanso-longo')
   longBtn.classList.add('active')
 })
 
 function changeContext(context) {
+  showTimeScreen()
   buttons.forEach(function (context) {
         context.classList.remove('active')
     })
@@ -61,7 +68,7 @@ const countdown = () => {
     return
   }
     timePassedSeconds -= 1
-    console.log('Time: ' + timePassedSeconds)
+    showTimeScreen()
 }
 
 startPauseBtn.addEventListener('click', startCount)
@@ -83,3 +90,13 @@ function reset() {
     startBtn.innerHTML = `<span><i class="fa-solid fa-play"></i>Play</span>`
     intervalId = null
 }
+
+// timescreen
+
+function showTimeScreen() {
+  const time = new Date(timePassedSeconds * 1000)
+  const formattedTime = time.toLocaleTimeString('pt-Br', {minute: '2-digit', second: '2-digit'})
+  timeScreen.innerHTML = `${formattedTime}`
+}
+
+showTimeScreen()

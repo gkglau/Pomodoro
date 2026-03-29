@@ -11,9 +11,9 @@ const playMusic = document.querySelector('#alternar-musica');
 const music = new Audio('/sounds/luna-rise-part-one.mp3');
 music.loop = true
 
-const playSound = new Audio('/sounds/play.wav');
-const pauseSound = new Audio('/sounds/pause.mp3');
-const endSound = new Audio('/sounds/beep.mp3');
+const playSound = new Audio('sounds/play.wav');
+const pauseSound = new Audio('sounds/pause.mp3');
+const endSound = new Audio('sounds/beep.mp3');
 
 // countdown
 let timePassedSeconds = 1500

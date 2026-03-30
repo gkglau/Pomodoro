@@ -1,6 +1,7 @@
 const btnAddTask = document.querySelector('.app__button--add-task')
 const formAddTask = document.querySelector('.app__form-add-task')
 const textarea = document.querySelector('.app__form-add-task')
+const ulTasks = document.querySelector('..app__section-task-list')
 
 const tasks = JSON.parse(localStorage.getItem('tasks')) || []
 
@@ -27,6 +28,8 @@ function createElTask(task){
   li.append(svg)
   li.append(paragraph)
   li.append(button)
+
+  return li
 }
 
 btnAddTask.addEventListener('click', () => {
@@ -41,3 +44,7 @@ formAddTask.addEventListener('submit',(event) => {
   tasks.push(task)
   localStorage.setItem('tasks', JSON.stringify(tasks))
 })
+tasks.forEach(task => {
+   const el = createElTask(task)
+   ulTasks.append(el)
+});

@@ -2,7 +2,7 @@ const btnAddTask = document.querySelector('.app__button--add-task')
 const formAddTask = document.querySelector('.app__form-add-task')
 const textarea = document.querySelector('.app__form-add-task')
 
-const tasks = JSON.parse*(localStorage.getItem('tasks'))
+const tasks = JSON.parse*(localStorage.getItem('tasks')) || []
 
 function createElTask(task){
   const li = document.createElement('li')

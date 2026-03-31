@@ -6,6 +6,7 @@ const ulTasks = document.querySelector('.app__section-task-list')
 const paragraphTaskDescript = document.querySelector('.app__section-active-task-description')
 
 const btnRemoveCompleted = document.querySelector('#btn-remover-concluidas')
+const btnRemoveAll = document.querySelector('#btn-remover-todas')
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || []
 let selectedTask = null
@@ -117,11 +118,13 @@ document.addEventListener('focusEnd', () => {
   }
 )
 
-btnRemoveCompleted.onclick = () => {
-  const selector = ".app__section-task-list-item-complete"
+const removeTasks = (onlyCompleted) => {
+    const selector = onlyCompleted ?  ".app__section-task-list-item-complete" : ".app__section-task-list-item"
       document.querySelectorAll(selector).forEach(element => {
         element.remove()
     })
-    tasks = tasks.filter(task => !task.complete)
+    tasks = onlyCompleted ? tasks.filter(task => !task.complete) : []
     updateTasks()
 }
+btnRemoveCompleted.onclick = () =>  removeTasks(true)
+btnRemoveAll.onclick = () => removeTasks(false)

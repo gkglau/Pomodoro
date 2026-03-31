@@ -5,9 +5,14 @@ const ulTasks = document.querySelector('.app__section-task-list')
 
 const tasks = JSON.parse(localStorage.getItem('tasks')) || []
 
+function updateTasks () {
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+}
+
 function createElTask(task){
   const li = document.createElement('li')
   li.classList.add('app__section-task-list-item')
+
   const svg = document.createElement('svg')
   svg.innerHTML = `
         <svg class="app__section-task-icon-status" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,6 +26,14 @@ function createElTask(task){
 
   const button = document.createElement('button')
   button.classList.add('app_button-edit')
+
+  button.onclick = () => {
+    const editDescription = prompt("What's the new task?")
+    paragraph.textContent = editDescription
+    task.descript = editDescription
+    updateTasks()
+  }
+
   const imageButton = document.createElement('img')
   imageButton.setAttribute('src', 'images/edit.png')
   button.append(imageButton)
@@ -42,10 +55,14 @@ formAddTask.addEventListener('submit',(event) => {
     descript: textarea.value
   }
   tasks.push(task)
-  localStorage.setItem('tasks', JSON.stringify(tasks))
+  const el = createElTask(task)
+  ulTasks.append(el)
+  updateTasks()
+
+  textarea.value = ''
+  formAddTask.classList.add('hidden')
 })
-textarea.value = ''
-ulTasks.innerHTML = ''
+
 
 tasks.forEach(task => {
    const el = createElTask(task)

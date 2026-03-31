@@ -2,11 +2,11 @@
     --color-primary: #123456;
     --color-secondary: #FFF;
     --azul-royal: #144480;
-    --fundo-card-timer: rgba(20, 68, 128, 0.30);
+    --fundo-card-timer: rgba(20, 68, 128, 0.40);
     --lils: #B872FF;
     --linear-botes: linear-gradient(180deg, #B872FF 0%, #144480 100%);
     --azul-profundo: #01080E;
-    --fundo-card: rgba(255, 255, 255, 0.50);
+    --fundo-card: rgba(255, 255, 255);
     --fundo-card-concludo: rgba(0, 244, 191, 0.40);
 }
 
@@ -38,11 +38,9 @@ body {
     background: url("images/pattern.png");
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: Helvetica, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Unbounded', cursive;
-}
 i{
   margin: 1rem;
 }
@@ -50,16 +48,17 @@ i{
 .app__logo-figure {
     display: flex;
     justify-content: center;
-    padding: 4rem 0;
+     padding: 3.2rem 0 2.4rem;
 }
 
 .app__section-banner-container {
     width: 99rem;
     margin: 0 auto;
+    padding: 0 2.4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 4rem;
+    gap: 3.2rem;
     flex-wrap: wrap;
 }
 
@@ -70,6 +69,7 @@ i{
     color: var(--color-secondary);
     font-weight: 200;
     max-width: 46rem;
+    margin-bottom: 1.6rem;
 }
 
 .app__title-strong {
@@ -85,8 +85,8 @@ i{
     border-radius: 3.2rem;
     border: 0.2rem solid var(--azul-royal);
     background: var(--fundo-card-timer);
-    padding: 2.4rem;
-    margin: 8rem 0;
+    padding: 3.2rem;
+    margin: 4rem 0;
     width: 59rem;
     max-width: 90%;
 }
@@ -102,7 +102,6 @@ i{
 }
 
 .app__card-button {
-    font-family: Montserrat;
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 400;
@@ -124,7 +123,6 @@ i{
 .app__card-timer {
     color: var(--color-secondary);
     text-align: center;
-    font-family: Unbounded;
     font-size: 12rem;
     font-style: normal;
     font-weight: 700;
@@ -135,7 +133,6 @@ i{
 
 .app__card-list-label {
     color: var(--color-secondary);
-    font-family: Montserrat;
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 400;
@@ -176,7 +173,6 @@ i{
 .app__footer-text {
     color: rgba(182, 182, 182, 0.8);
     text-align: center;
-    font-family: Montserrat;
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 400;
@@ -273,16 +269,12 @@ i{
     visibility: hidden;
 }
 
-/* fim - toggle */
-
-/* Para Tablets */
 @media (max-width: 1024px) and (min-width: 768px) {
     .app__section-banner-container {
         width: 48rem;
     }
 }
 
-/* Para Celulares */
 @media (max-width: 767px) {
    .app__section-banner-container {
         width: 32rem;
@@ -335,11 +327,9 @@ i{
     font-weight: 400;
     line-height: 150%;
     white-space: nowrap;
-    font-family: Montserrat;
 }
 
 .app__section-active-task-description {
-    font-family: Montserrat;
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 600;
@@ -369,7 +359,6 @@ i{
 }
 
 .app__section-active-task-label {
-    font-family: Montserrat;
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 400;
@@ -402,7 +391,6 @@ i{
     font-weight: 600;
     line-height: 150%;
     color: var(--azul-profundo);
-    font-family: Montserrat;
 }
 
 .app__section-task-list-item-complete.app__section-task-list-item {
@@ -426,12 +414,10 @@ i{
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
-    font-family: Montserrat;
 }
 
 .app__form-label {
     color: var(--azul-profundo);
-    font-family: Unbounded;
     font-size: 2.6rem;
     font-style: normal;
     font-weight: 400;
@@ -444,7 +430,6 @@ i{
     width: 100%;
     border-radius: 0.8rem;
     padding: 0.8rem;
-    background: #98A0A8;
 }
 
 .app__form-footer {
@@ -467,7 +452,6 @@ i{
     display: flex;
     align-items: center;
     color: var(--azul-profundo);
-    font-family: Montserrat;
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 600;

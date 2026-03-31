@@ -64,6 +64,11 @@ const countdown = () => {
   if(timePassedSeconds <= 0){
     endSound.play()
     alert("Time's up.")
+    const activeFocus = html.getAttribute('data-contexto') == 'foco'
+    if (activeFocus) {
+      const event = new CustomEvent('focusEnd')
+      document.dispatchEvent(event)
+    }
     reset()
     return
   }

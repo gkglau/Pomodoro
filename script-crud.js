@@ -1,4 +1,5 @@
 const btnAddTask = document.querySelector('.app__button--add-task')
+const btnCancel = document.querySelector('.app__form-footer__button--cancel')
 const formAddTask = document.querySelector('.app__form-add-task')
 const textarea = document.querySelector('.app__form-textarea')
 const ulTasks = document.querySelector('.app__section-task-list')
@@ -49,6 +50,11 @@ function createElTask(task){
 }
 
 btnAddTask.addEventListener('click', () => {
+  formAddTask.classList.toggle('hidden')
+} )
+
+btnCancel.addEventListener('click', () => {
+  textarea.value = ''
   formAddTask.classList.toggle('hidden')
 } )
 

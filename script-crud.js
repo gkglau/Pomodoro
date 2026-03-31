@@ -29,9 +29,12 @@ function createElTask(task){
 
   button.onclick = () => {
     const editDescription = prompt("What's the new task?")
-    paragraph.textContent = editDescription
-    task.descript = editDescription
-    updateTasks()
+
+    if (editDescription){
+      paragraph.textContent = editDescription
+      task.descript = editDescription
+      updateTasks()
+    }
   }
 
   const imageButton = document.createElement('img')

@@ -12,8 +12,11 @@ const music = new Audio('/sounds/luna-rise-part-one.mp3');
 music.loop = true
 
 const playSound = new Audio('sounds/play.wav');
+playSound.volume = 0.2
 const pauseSound = new Audio('sounds/pause.mp3');
+pauseSound.volume = 0.2
 const endSound = new Audio('sounds/beep.mp3');
+endSound.volume = 0.2
 
 // countdown
 let timePassedSeconds = 1500

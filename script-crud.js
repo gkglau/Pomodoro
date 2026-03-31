@@ -7,6 +7,7 @@ const paragraphTaskDescript = document.querySelector('.app__section-active-task-
 
 const tasks = JSON.parse(localStorage.getItem('tasks')) || []
 let selectedTask = null
+let liSelectedTask = null
 
 function updateTasks () {
   localStorage.setItem('tasks', JSON.stringify(tasks))
@@ -57,10 +58,12 @@ function createElTask(task){
     if (selectedTask == task) {
       paragraphTaskDescript.textContent = ""
       selectedTask = null
+      liSelectedTask = null
       return
     }
 
     selectedTask = task
+    liSelectedTask = li
     paragraphTaskDescript.textContent = task.descript
     li.classList.add('app__section-task-list-item-active')
   }
@@ -91,8 +94,16 @@ formAddTask.addEventListener('submit',(event) => {
   formAddTask.classList.add('hidden')
 })
 
-
 tasks.forEach(task => {
    const el = createElTask(task)
    ulTasks.append(el)
 });
+
+document.addEventListener('focusEnd', () => {
+  if (selectedTask && liSelectedTask) {
+    liSelectedTask.classList.remove('app__section-task-list-item-active')
+    liSelectedTask.classList.add('app__section-task-list-item-complete')
+    liSelectedTask.querySelector('button').setAttribute('disabled', 'disabled')
+    }
+  }
+)

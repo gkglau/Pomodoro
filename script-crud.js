@@ -3,6 +3,7 @@ const btnCancel = document.querySelector('.app__form-footer__button--cancel')
 const formAddTask = document.querySelector('.app__form-add-task')
 const textarea = document.querySelector('.app__form-textarea')
 const ulTasks = document.querySelector('.app__section-task-list')
+const paragraphTaskDescript = document.querySelector('.app__section-active-task-description')
 
 const tasks = JSON.parse(localStorage.getItem('tasks')) || []
 
@@ -45,6 +46,15 @@ function createElTask(task){
   li.append(svg)
   li.append(paragraph)
   li.append(button)
+
+  li.onclick = () => {
+    paragraphTaskDescript.textContent = task.descript
+    document.querySelectorAll('.app__section-task-list-item-active')
+      .forEach(element => {
+        element.classList.remove('app__section-task-list-item-active')
+      })
+    li.classList.add('app__section-task-list-item-active')
+  }
 
   return li
 }

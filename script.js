@@ -8,7 +8,7 @@ const startBtn= document.querySelector('#start-pause span')
 
 // sounds
 const playMusic = document.querySelector('#alternar-musica');
-const music = new Audio('/sounds/luna-rise-part-one.mp3');
+const music = new Audio('sounds/luna-rise-part-one.mp3');
 music.loop = true
 
 const playSound = new Audio('sounds/play.wav');

@@ -23,7 +23,7 @@ The Pomodoro Technique is a time management method that breaks work into interva
 1. Work for 25 minutes
 2. Take a short break (5 minutes)
 3. Repeat 4 cycles
-4. Take a long break (15–30 minutes)
+4. Take a long break (15 minutes)
 
 This app automates the cycle and keeps track of your progress.
 

@@ -35,3 +35,5 @@ This app automates the cycle and keeps track of your progress.
 - DOM Manipulation
 - LocalStorage API
 
+## Preview
+<img width="1588" height="1078" alt="Screenshot 2026-04-20 at 20 30 12" src="https://github.com/user-attachments/assets/53a62875-543d-4dc8-9657-9ecfb537cc5a" />
